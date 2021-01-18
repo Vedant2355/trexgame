@@ -91,7 +91,7 @@ function draw(){
   
   
   //infinite ground
-  if(ground.x <0){
+  if(ground.x< width/2.5){
     ground.x = width/2;
   }
   
@@ -157,7 +157,7 @@ function cloudSpawn(){
   cloud = createSprite(width,Cy,10,10);
   cloud.addImage(clouds);
   cloud.scale = Cs;
-  cloud.lifetime = 200;
+  cloud.lifetime = width/cloud.velocityX;
   }
   else{
     return;
@@ -168,7 +168,7 @@ function cloudSpawn(){
 }
 
 function obstacleSpawn(){
-  if(frameCount%75 === 0){
+  if(frameCount%150 === 0){
     obstacle = createSprite(width,height-60,10,10);
     obstacle.scale = 0.1;
     var On = Math.round(random(1,6));
